@@ -1,0 +1,25 @@
+- Minimum RTO for a single AZ outage
+Time	Description
+00:01	Problem occurs (First minute)
+00:06	An amount of time gone before an alert be triggered (5 mins - typically 5 mín)
+00:07	Swich to the 2nd AZ  (1 mins)
+Total time is aroung 8 to 10 minutes
+
+- Minimum RTO for a single region outage
+Time	Description
+00:01	Problem occurs (First minute)
+00:06	An amount of time gone before an alert be triggered (5 mins)
+00:07	Alert triggers to all staffs (1 mins)
+00:17	Triggered staff prepare and log in (10 mins)
+00:27	Staff starts investigating the issue (10 mins)
+00:37	Root cause is discovered (10 mins)
+00:47	Remediation started (10 mins)
+00:52	Issue fixed (10 mins)
+Total time is almost 60 to 70 mins
+
+- Minimum RPO for a single AZ outage
+RDS has a point in time restoration which uploads transactions every 5 minutes in transaction logs. So that data  would be lost would be 5 minutes.
+
+- Minimum RPO for a single region outage
+Read replicas aim to be kept up to date with the primary DB so the read replica should have almost the same RPO as the primary DB.
+For some critical cases we can consider at most the RPO should be arround 10 mins
